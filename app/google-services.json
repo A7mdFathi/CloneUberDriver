@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "663241559313",
+    "firebase_url": "https://androiduber-2112.firebaseio.com",
+    "project_id": "androiduber-2112",
+    "storage_bucket": "androiduber-2112.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:663241559313:android:9eaddc6d05fae1b9",
+        "android_client_info": {
+          "package_name": "com.example.android.androiduber"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "663241559313-7j53ft7pt4gu8ov9gfmlk198mlubk1g8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.androiduber",
+            "certificate_hash": "ac965d5fb2fbb4354581cb5882d61154d383431d"
+          }
+        },
+        {
+          "client_id": "663241559313-rds0ckam1vdgbbe0h2adquqqf8eg20uc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1qnot6chuG6Y7-tZZS8jlSP_-zyr7gxY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "663241559313-rds0ckam1vdgbbe0h2adquqqf8eg20uc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

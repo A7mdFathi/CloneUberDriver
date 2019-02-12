@@ -89,6 +89,8 @@ public class WelcomeActivity extends FragmentActivity implements OnMapReadyCallb
     MaterialAnimatedSwitch location_switch;
     SupportMapFragment mapFragment;
 
+
+    ////car animation
     private List<LatLng> polyLineList;
     private Marker carMarker;
     private float v;
@@ -197,9 +199,9 @@ public class WelcomeActivity extends FragmentActivity implements OnMapReadyCallb
         btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 destination = edtPlace.getText().toString();
                 destination = destination.replace(" ", "+");
-
                 Log.d("EDMTDEV", destination);
 
                 getDirection();
@@ -214,11 +216,12 @@ public class WelcomeActivity extends FragmentActivity implements OnMapReadyCallb
     }
 
     private void getDirection() {
+
         currentPos = new LatLng(mLocation.getLatitude(), mLocation.getLongitude());
 
         String requestApi = null;
         try {
-            requestApi = "https://maps.googleapis.com/maps/api/geocode/json?" +
+            requestApi = "https://maps.googleapis.com/maps/api/directions/json?" +
                     "mode=driving&" +
                     "transit_routing_preference=less_driving&" +
                     "origin=" + currentPos.latitude + "," + currentPos.longitude + "&" +
@@ -229,6 +232,7 @@ public class WelcomeActivity extends FragmentActivity implements OnMapReadyCallb
             Log.d("EDMTDEV", requestApi);
 
             mService.getPath(requestApi)
+
                     .enqueue(new Callback<String>() {
                         @Override
                         public void onResponse(Call<String> call, Response<String> response) {
@@ -241,7 +245,7 @@ public class WelcomeActivity extends FragmentActivity implements OnMapReadyCallb
                                     JSONObject poly = route.getJSONObject("overview_polyline");
                                     String polyline = poly.getString("points");
                                     polyLineList = decodePoly(polyline);
-
+                                }
                                     LatLngBounds.Builder builder = new LatLngBounds.Builder();
                                     for (LatLng latLng : polyLineList)
                                         builder.include(latLng);
@@ -280,7 +284,7 @@ public class WelcomeActivity extends FragmentActivity implements OnMapReadyCallb
                                             List<LatLng> points = greyPolyline.getPoints();
                                             int percentValue = (int) valueAnimator.getAnimatedValue();
                                             int size = points.size();
-                                            int newPoints = (int) (size * (percentValue / 100.00));
+                                            int newPoints = (int) (size * (percentValue / 100.0f));
                                             List<LatLng> p = points.subList(0, newPoints);
                                             blackPolyline.setPoints(p);
                                         }
@@ -296,7 +300,7 @@ public class WelcomeActivity extends FragmentActivity implements OnMapReadyCallb
                                     next = 1;
                                     handler.postDelayed(drawPathRunnable, 3000);
 
-                                }
+
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -429,20 +433,26 @@ public class WelcomeActivity extends FragmentActivity implements OnMapReadyCallb
                 && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
+
         mLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+
         if (mLocation != null) {
+
             if (location_switch.isChecked()) {
+
                 final double latitude = mLocation.getLatitude();
                 final double longitude = mLocation.getLongitude();
 
                 geoFire.setLocation(FirebaseAuth.getInstance().getCurrentUser().getUid(), new GeoLocation(latitude, longitude), new GeoFire.CompletionListener() {
                     @Override
                     public void onComplete(String key, DatabaseError error) {
+
                         if (mCurrent != null) {
                             mCurrent.remove();
                             mCurrent = mMap.addMarker(new MarkerOptions()
+                                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.car))
                                     .position(new LatLng(latitude, longitude))
-                                    .title("your location"));
+                                    .title("you"));
 
 
                             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 15.0f));
@@ -492,6 +502,7 @@ public class WelcomeActivity extends FragmentActivity implements OnMapReadyCallb
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mMap.setTrafficEnabled(false);

@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import com.example.android.androiduber.common.Common;
 import com.example.android.androiduber.model.Usr;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         db = FirebaseDatabase.getInstance();
-        users = db.getReference("Users");
+        users = db.getReference(Common.usr_driver_tbl);
 
 
         btnSignIn = (Button) findViewById(R.id.signin_btn);
@@ -136,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
                         waitingDialog.dismiss();
                         Snackbar.make(rootLayout, "Failure " + e.getMessage(), Snackbar.LENGTH_SHORT)
                                 .show();
-btnSignIn.setEnabled(true);
+                        btnSignIn.setEnabled(true);
                     }
                 });
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidUber</string>
+    <string name="app_name">Uber Clone Driver</string>
     <string name="title_activity_welcome">Map</string>
-    <string name="google_direction_api">AIzaSyBr3JG2MJkA_3nbAO9g--wxuJKK_A7Jx54</string>
+    <string name="title_activity_driver_tracker">Map</string>
 </resources>

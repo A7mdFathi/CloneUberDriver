@@ -15,7 +15,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "663241559313-7j53ft7pt4gu8ov9gfmlk198mlubk1g8.apps.googleusercontent.com",
+          "client_id": "663241559313-2ghjqfm4h38320af953avmh4pi3ekg84.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.android.androiduber",
@@ -23,13 +23,22 @@
           }
         },
         {
-          "client_id": "663241559313-rds0ckam1vdgbbe0h2adquqqf8eg20uc.apps.googleusercontent.com",
+          "client_id": "663241559313-r22amt8svar573vjl37cr0c1psr6b153.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC1qnot6chuG6Y7-tZZS8jlSP_-zyr7gxY"
+          "current_key": "AIzaSyBM3acgQHgdILteBlRRsAIqQQzdAD-kCTk"
+        },
+        {
+          "current_key": "AIzaSyCNemhWUvLxis--TCfFBvrKK2j9mKwGORo"
+        },
+        {
+          "current_key": "AIzaSyC41-fYicgM8fssxu5dZMR-dZe_CaWQCFQ"
+        },
+        {
+          "current_key": "AIzaSyDmU1P3ls7ZKTwozfuHHahA-swH3bgOlYY"
         }
       ],
       "services": {
@@ -40,7 +49,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "663241559313-rds0ckam1vdgbbe0h2adquqqf8eg20uc.apps.googleusercontent.com",
+              "client_id": "663241559313-r22amt8svar573vjl37cr0c1psr6b153.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -1,7 +1,8 @@
+
 package com.example.android.androiduber.model;
 
 public class Usr {
-    private String email,password,name,phone;
+    private String email, password, name, phone;
 
     public Usr() {
     }
